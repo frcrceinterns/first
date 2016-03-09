@@ -1,0 +1,15 @@
+package org.crce.interns.service;
+import java.util.List;
+
+import org.crce.interns.beans.UserBean;
+import org.crce.interns.model.User;
+import org.springframework.stereotype.Service;
+
+public interface UserService {
+	public void insertUser(UserBean userBean);
+
+	public List<UserBean> viewUsers();
+
+	public void deleteUser(String userName);
+	public UserBean getUser(String userName);
+}
