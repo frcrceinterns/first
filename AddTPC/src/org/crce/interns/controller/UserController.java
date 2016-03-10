@@ -36,6 +36,11 @@ public class UserController {
 		return new ModelAndView("insertUser");
 	}
 	
+	@RequestMapping("/DeleteUser")
+	public ModelAndView deleteUserWelcome() {
+		return new ModelAndView("deleteUser");
+	}
+	
 	@RequestMapping(value = "/SubmitInsertUser", method = RequestMethod.POST)
 	public ModelAndView createUser(@ModelAttribute("user")UserBean userBean, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
@@ -46,9 +51,11 @@ public class UserController {
 		return new ModelAndView("redirect:/ViewUsers");
 	}
 	
-	@RequestMapping(name = "/SubmitDeleteUser", method = RequestMethod.GET)
+	@RequestMapping(name = "/SubmitDeleteUser", method = RequestMethod.POST)
 	//public ModelAndView deleteUser(@RequestParam("rollNo") int rollNo) {
-	public ModelAndView deleteUser(@ModelAttribute("command")UserBean userBean) {
+	//public ModelAndView deleteUser(@ModelAttribute("command")UserBean userBean) {
+		public ModelAndView deleteUser(@ModelAttribute("user")UserBean userBean) {
+			
 		userService.deleteUser(userBean.getUserName());
 		return new ModelAndView("redirect:/ViewUsers");
 	}

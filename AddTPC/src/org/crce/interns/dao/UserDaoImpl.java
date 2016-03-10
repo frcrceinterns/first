@@ -20,6 +20,10 @@ public class UserDaoImpl implements UserDao{
 		// TODO Auto-generated method stub
 		//entityManager.persist(user);
 	//	List l=(List) entityManager.createQuery("");
+		// from the user.username check if that entry is presetn in db
+		// check the role of selected tuple
+		// now if the role == studetn then new_role == studenttpc
+		// else faculty tpc
 		entityManager.merge(user);
 	}
 	@Override
@@ -27,4 +31,11 @@ public class UserDaoImpl implements UserDao{
 		// TODO Auto-generated method stub
 		return entityManager.createQuery("select u from User u", User.class).getResultList();
 	}
+	
+	@Override
+	public void deleteUser(String userName) {
+		// TODO Auto-generated method stub
+		entityManager.createQuery("delete from User u where u.userName = :n").setParameter("n", userName).executeUpdate();
+	}
+
 }

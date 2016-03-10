@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void deleteUser(String userName) {
 		// TODO Auto-generated method stub
+		userDao.deleteUser(userName);
 		
 	}
 
