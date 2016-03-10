@@ -47,9 +47,5 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
-	@Override
-	public UserBean getUser(String userName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

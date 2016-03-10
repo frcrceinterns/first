@@ -59,13 +59,14 @@ public class UserController {
 		userService.deleteUser(userBean.getUserName());
 		return new ModelAndView("redirect:/ViewUsers");
 	}
+}
 	
-	@RequestMapping("/EditUser")
+	/*@RequestMapping("/EditUser")
 	public ModelAndView editUser(@ModelAttribute("command")UserBean userBean) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("user", userService.getUser(userBean.getUserName()));
 		return new ModelAndView("insertUser", modelMap);
-	}
+	}*/
 	
 	/*
 	@RequestMapping("/")
@@ -101,4 +102,3 @@ public class UserController {
 	}
 */
 	
-}

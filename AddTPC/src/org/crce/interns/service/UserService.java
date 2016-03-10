@@ -11,5 +11,5 @@ public interface UserService {
 	public List<UserBean> viewUsers();
 
 	public void deleteUser(String userName);
-	public UserBean getUser(String userName);
+	
 }
