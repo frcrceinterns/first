@@ -14,14 +14,31 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDao;
 	
+
 	@Override
 	public void insertUser(UserBean userBean) {
 		// TODO Auto-generated method stub
 		User user = new User();
+		User checkUser = new User();
+		
+		
 		BeanUtils.copyProperties(userBean, user);
+		checkUser.setUsername(userBean.getUsername());
+		
+		checkUser=userDao.getUser(checkUser);
+		
+		if(checkUser.getRole != role of student ){
+		  //do something
+		  
+		}
+		else{
+		  
+		  userDao.insertUser(user);
+		}
 		//user.setUserDob(new java.sql.Date(userBean.getUserDob().getTime()));
-		userDao.insertUser(user);
+		
 	}
+
 
 	@Override
 	public List<UserBean> viewUsers() {
