@@ -1,3 +1,31 @@
 Few changes u need to do for integration:
 
 1.change userName to username.Do this using "Refactor" in Eclipse
+
+
+2.ISSUE:When adding student tpc role, check whether user is student/faculty tpc
+
+// in DAO:
+
+@Override
+	public void insertUser(UserBean userBean) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		BeanUtils.copyProperties(userBean, user);
+		//user.setUserDob(new java.sql.Date(userBean.getUserDob().getTime()));
+		
+		
+		User checkUser=new User();
+		
+		checkUser.setUsername(userBean.getUsername());
+		
+		User checkUser=userDao.getUser(checkUser);
+		
+		if(user.getRole == role of Student TPC){
+		  // do something
+		}
+		else{
+		  // do something else
+		}
+		userDao.insertUser(user);
+	}
